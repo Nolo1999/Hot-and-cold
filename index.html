@@ -15,32 +15,43 @@
   <body>
     <div class="weather-app">
       <header>
-        <form action="">
-          <input type="search" placeholder="Enter a city..." required />
-          <input type="submit" value="Search" />
+        <form class="search-form">
+          <input
+            type="search"
+            placeholder="Enter a city..."
+            required
+            class="search-form-input"
+          />
+          <input type="submit" value="Search" class="search-form-button" />
         </form>
       </header>
       <main>
-        <div>
-          <h1>Krugersdorp</h1>
-          <p>
-            Tuessday 14:50, scattered clouds
-            <br />
-            Humidity: 66%, Wind: 3,13km/h
-          </p>
+        <div class="weather-app-data">
+          <div>
+            <h1 class="weather-app-city">Krugersdorp</h1>
+            <p class="weather-app-details">
+              Tuessday 14:50, scattered clouds
+              <br />
+              Humidity: <strong>66%</strong>, Wind: <strong>3,13km/h</strong>
+            </p>
+          </div>
+          <div class="weather-app-temp-container">
+            <div class="weather-app-icon">☀️</div>
+            <div class="weather-app-temperature">23</div>
+            <div class="weather-app-unit">°C</div>
+          </div>
         </div>
-        <div>☀️23°C</div>
       </main>
       <footer>
         This project was coded by
         <a target="_blank" href="https://github.com/Nolo1999"
           >Lehlohonolo Phooko</a
         >
-        code hosted on
+        website/code hosted on
         <a target="_blank" href="https://github.com/Nolo1999/Hot-and-cold"
-          >Github,
+          >Github
         </a>
-        website hosted on
+        or
         <a
           target="_blank"
           href="https://app.netlify.com/sites/hot-and-cold-weather/overview"
