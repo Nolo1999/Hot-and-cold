@@ -18,6 +18,9 @@ function weatherInfo(response) {
   let timeElement = document.querySelector("#time");
   let date = new Date(response.data.time * 1000);
   timeElement.innerHTML = updateDate(date);
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
 }
 function updateDate(date) {
   let hours = date.getHours();
@@ -27,6 +30,7 @@ function updateDate(date) {
   }
   let days = [
     "Sunday",
+    "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
