@@ -5,6 +5,36 @@ function weatherInfo(response) {
 
   let weatherAppCityElement = document.querySelector("#weather-app-city");
   weatherAppCityElement.innerHTML = response.data.city;
+
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = response.data.condition.description;
+
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = response.data.temperature.humidity;
+
+  let windElement = document.querySelector("#wind-speed");
+  windElement.innerHTML = response.data.wind.speed;
+
+  let timeElement = document.querySelector("#time");
+  let date = new Date(response.data.time * 1000);
+  timeElement.innerHTML = updateDate(date);
+}
+function updateDate(date) {
+  let hours = date.getHours();
+  let min = date.getMinutes();
+  if (min < 10) {
+    min = `0${miin}`;
+  }
+  let days = [
+    "Sunday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${min}`;
 }
 
 function searchCity(city) {
@@ -23,3 +53,4 @@ function searchSubmit(event) {
 
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", searchSubmit);
+searchCity("kagiso");
