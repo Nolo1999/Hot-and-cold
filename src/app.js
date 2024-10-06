@@ -1,0 +1,10 @@
+function searchSubmit(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector("#search-form-input");
+  let weatherAppCityElement = document.querySelector("#weather-app-city");
+  weatherAppCityElement.innerHTML = searchInput.value;
+}
+
+let searchFormElement = document.querySelector("#search-form");
+console.log(searchFormElement);
+searchFormElement.addEventListener("submit", searchSubmit);
