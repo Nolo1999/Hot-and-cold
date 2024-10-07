@@ -24,6 +24,9 @@ function weatherInfo(response) {
 }
 function updateDate(date) {
   let hours = date.getHours();
+  if (hours < 1) {
+    hours = `0${hours}`;
+  }
   let min = date.getMinutes();
   if (min < 10) {
     min = `0${miin}`;
@@ -54,7 +57,35 @@ function searchSubmit(event) {
   weatherAppCityElement.innerHTML = searchInput.value;
   searchCity(searchInput.value);
 }
+function displayForecast() {
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `
+          <div class="weather-forecast-day">
+            <div class="weather-forecast-date">${day}</div>
+            <div class="weather-forecast-icon">☀️</div>
+            <div class="weather-forecast-temperature">
+              <div class="weather-forecast-temperatures">
+                <strong>23°</strong>
+              </div>
+              <div class="weather-forecast-temperatures">
+                <strong>14°</strong>
+              </div>
+            </div>
+          </div>
+`;
+  });
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHtml;
+}
 
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", searchSubmit);
+
 searchCity("kagiso");
+displayForecast();
